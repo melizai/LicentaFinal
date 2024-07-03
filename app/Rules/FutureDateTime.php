@@ -30,7 +30,7 @@ class FutureDateTime implements Rule
         $dateTime = Carbon::parse($value);
 
         // Check if the given datetime is greater than or equal to the current datetime
-        return $dateTime->greaterThanOrEqualTo(Carbon::now());
+        return $dateTime->greaterThanOrEqualTo(Carbon::today());
     }
 
     /**

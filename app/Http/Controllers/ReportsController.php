@@ -40,7 +40,7 @@ class ReportsController extends Controller
             'professor' => 'required|string',
             'date' => ['required', 'date', new FutureDateTime],
             'signature' => 'required|string',
-            'zip_file' => ['required', 'file', new ZipFile],
+            'zip_file' => ['sometimes', 'file', new ZipFile],
         ]);
 
         if ($validator->fails()) {
@@ -50,6 +50,7 @@ class ReportsController extends Controller
                 'details' => $validator->errors()
             ], 422);
         }
+
 
         $data = [
             'title' => $template->name,

@@ -23,7 +23,7 @@ class SendDeadlineReminders extends Command
      *
      * @var string
      */
-    protected $description = 'Send email reminders 24 hours before template deadlines';
+    protected $description = 'Termenul limita pentru template in mai putin de 24h';
 
     /**
      * Execute the console command.
@@ -42,7 +42,6 @@ class SendDeadlineReminders extends Command
                 Mail::to($user->email)->send(new TemplateDeadlineReminder($template, $user));
             }
 
-            // Update the template's users_notified field to true
             $template->users_notified = true;
             $template->save();
         }
